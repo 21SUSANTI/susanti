@@ -14,20 +14,29 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/about', function () {
-    return view('about');
-});
-Auth::routes();
+//Route::get('/about', function () {
+ //   return view('about');
+//});
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/article/{page}', 'ArticleController@article');
+//Route::get('/article/{page}', 'ArticleController@article');
 
-Route::get('/master', 'MasterController@master')->name('master');
+//Route::get('/master', 'MasterController@master')->name('master');
 
-Route::get('/home1', 'Home1Controller@home1');
+//Route::get('/home1', 'Home1Controller@home1');
 
-Route::get('/post1', function(){
-    return view('post1');
-});
-Route::get('/articles', 'Article1Controller@articles');
+//Route::get('/post1', function(){
+ //   return view('post1');
+//});
+//Route::get('/articles', 'Article1Controller@articles');
+
+//Route::get('/', function () {
+//    return view('home3');
+//});
+Route::get('/','Home3Controller@home3');
+Route::get('/profil3', 'Profil3Controller@profil3');
+Route::get('/ekstrakulikuler3', 'Ekstrakulikuler3Controller@ekstrakulikuler3');
+Route::get('/guru3', 'Guru3Controller@guru3');
+Route::get('/Siswa3', 'Siswa3Controller@Siswa3');
