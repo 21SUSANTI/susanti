@@ -19,7 +19,7 @@ Route::get('/', function () {
 //});
 //Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'Home2Controller@index')->name('home');
 
 //Route::get('/article/{page}', 'ArticleController@article');
 
@@ -40,3 +40,6 @@ Route::get('/profil3', 'Profil3Controller@profil3');
 Route::get('/ekstrakulikuler3', 'Ekstrakulikuler3Controller@ekstrakulikuler3');
 Route::get('/guru3', 'Guru3Controller@guru3');
 Route::get('/Siswa3', 'Siswa3Controller@Siswa3');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

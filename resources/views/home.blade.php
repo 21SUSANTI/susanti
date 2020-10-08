@@ -12,9 +12,13 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
+                        
                     @endif
-
-                    You are logged in!
+                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link" href="/profil3">Profil</a>
+                    <a class="nav-link" href="/ekstrakulikuler3">EkstraKulikuler</a>
+                    <a class="nav-link" href="/guru3">Guru</a>
+                    <a class="nav-link" href="/Siswa3">Siswa</a>
                 </div>
             </div>
         </div>
