@@ -12,12 +12,11 @@ class Guru3controller extends Controller
         $staffs = staff::all();
         return view('guru3', ['staff' => $staffs]);
     }
-    
-    public function add(){
-        return view('add');
+    public function addArticle(){
+        return view('addArticle');
     }
     
-    public function create(Request $request){
+    public function createArticle(Request $request){
         $add = new staff();
             $add->id= $request->no;
             $add->nip=$request->nip;
@@ -25,15 +24,15 @@ class Guru3controller extends Controller
             $add->ttl= $request->ttl;
             $add->alamat=$request->alamat;
             $add->save();
-        return redirect('/guru3');
+        return redirect('/manage');
     }
 
-    public function edit($id){
+    public function editArticle($id){
         $staff = Staff::find($id);
-        return view('edit', ['staff'=>$staff]);
- }
+        return view('editArticle', ['staff'=>$staff]);
+    }
 
-    public function update($id, Request $request){
+    public function updateArticle($id, Request $request){
         $staff = Staff::find($id);
         $staff->id=$request->id;
         $staff->NIP=$request->NIP;
@@ -41,13 +40,13 @@ class Guru3controller extends Controller
         $staff->TTL=$request->TTL;
         $staff->Alamat=$request->Alamat;
         $staff->save();
-        return redirect('/guru3');
+        return redirect('/manage');
     }
 
-    public function delete ($id){
+    public function deleteArticle ($id){
         $staff = Staff::find($id);
-        $staff->delete();
-        return redirect('/guru3');
+        $staff->deleteArticle();
+        return redirect('/manage');
     }
 }
 

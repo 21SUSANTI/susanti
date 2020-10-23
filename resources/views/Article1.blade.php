@@ -10,7 +10,7 @@
                 <body style="background-color:bisque">
                     <font color="red" font-size=45px style="background-color:white">
                     DATABASE GURU 2020 SDN 5 OLEAN</font></h3>
-                   <a href="/guru3/add" class="btn btn-primary my-3">Tambah Data</a>
+                   <a href="/manage/addArticle" class="btn btn-primary my-3">Tambah Data</a>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -31,12 +31,12 @@
                             <td>{{ $a->TTL}}</td>
                             <td>{{ $a->Alamat }}</td> 
                             <td>
-                                    <a href="guru3/edit/ {{$a->id}}" class="badge badge-warning">Edit</a>
+                                    <a href="manage/editArticle/{{$a->id}}" class="badge badge-warning">Edit</a>
                                 </form>
                                 <form action="{{$a->id}}" method="post" class="d-inline">
-                                    @method('delete')
+                                    @method('deleteArticle')
                                     @csrf
-                                    <a href="guru3/delete/{{$a->id}}" class="badge badge-danger">Hapus</a>
+                                    <a href="manage/deleteArticle/{{$a->id}}" class="badge badge-danger">Hapus</a>
                                 </form>
                             <td>
                         </tr>

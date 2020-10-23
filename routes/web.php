@@ -38,8 +38,42 @@ Route::get('/', function () {
 Route::get('/','Home3Controller@home3');
 Route::get('/profil3', 'Profil3Controller@profil3');
 Route::get('/ekstrakulikuler3', 'Ekstrakulikuler3Controller@ekstrakulikuler3');
+
+//Database Guru/Read databse
 Route::get('/guru3', 'Guru3Controller@guru3');
+
+//menambah data
+Route::get('/guru3/add', 'Guru3Controller@add');
+Route::post('/guru3', 'Guru3Controller@create');
+
+//menghapus data
+Route::get('/guru3/delete/{id}', 'Guru3Controller@delete');
+
+//mengedit data
+Route::get('/guru3/edit/{id}', 'Guru3Controller@edit');
+Route::post('/guru3/update/{id}', 'Guru3Controller@update');
+
 Route::get('/Siswa3', 'Siswa3Controller@Siswa3');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/','Home3Controller@home3');
+//Route::get('/profil3', 'Profil3Controller@profil3');
+//Route::get('/ekstrakulikuler3', 'Ekstrakulikuler3Controller@ekstrakulikuler3');
+
+//Database Article/Read databse
+//Route::get('/manage', 'Article1Controller@guru3');
+
+//menambah data
+//Route::get('/manage/addArticle', 'Article1Controller@addArticle');
+//Route::post('/manage', 'Article1Controller@createArticle');
+
+//menghapus data
+//Route::get('/manage/deleteArticle/{id}', 'Article1Controller@deleteArticle');
+
+//mengedit data
+//Route::get('/manage/editArticle/{id}', 'Article1Controller@editArticle');
+//Route::post('/manage/updateArticle/{id}', 'Article1Controller@updateArticle');
+
+
