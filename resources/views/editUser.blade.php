@@ -1,4 +1,4 @@
-<<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -23,7 +23,7 @@
 <div class="card">
 <div class="card-header">
 <h2> Edit Data Guru </h2><br>
-<form action="/guru3/update/{{$staff->id}}" method="POST">
+<form action="/User/updateUser/{{$staff->id}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$staff->id}}"><br>
                 <div class="form-group">

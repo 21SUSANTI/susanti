@@ -27,7 +27,6 @@
     </div>
   </div>
 </nav>
-
    @yield ('container')
 
     <!-- Optional JavaScript -->

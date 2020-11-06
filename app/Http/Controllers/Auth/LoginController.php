@@ -37,4 +37,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    //public function redirectTo()
+    //{
+    //$for = [
+    //'Administrator' => 'manage', 'User'	=> 'home',
+    //];
+    //return $this->redirectTo = route($for[auth()->user()->roles]);
+    //}
+
 }

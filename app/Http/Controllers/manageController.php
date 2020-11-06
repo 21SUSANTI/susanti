@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\staff;
 
-class Guru3controller extends Controller
+class managecontroller extends Controller
 {
     public function guru3(){
         $staffs = staff::all();
