@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use PDF;
+
 class ArticleController extends Controller
 {
     public function article($page){
@@ -24,16 +26,20 @@ class ArticleController extends Controller
         return view('addUser');
     }
     
-    public function createUser(Request $request){
-        $add = new staff();
-            $add->id= $request->no;
-            $add->nip=$request->nip;
-            $add->nama= $request->nama;
-            $add->ttl= $request->ttl;
-            $add->alamat=$request->alamat;
-            $add->save();
-        return redirect('/user');
-    }
+    public function createUser(Request $request) {
+            if($request->file('image')){
+            $image_name = $request->file('image')->store('images','public');
+            }
+
+            Article::create([
+            $add->id= $request->no,
+            $add->nip=$request->nip,
+            $add->nama= $request->nama,
+            $add->ttl= $request->ttl,
+            $add->alamat=$request->alamat,
+            'featured_image' => $images_bunga,]);
+            return redirect('/manage');
+            } 
 
     public function editUser($id){
         $staff = Staff::find($id);
@@ -47,6 +53,12 @@ class ArticleController extends Controller
         $staff->nama=$request->nama;
         $staff->TTL=$request->TTL;
         $staff->Alamat=$request->Alamat;
+        if($article->featured_image && file_exists(storage_path('app/public/' . $article->featured_image)))
+        {
+            \Storage::delete('public/'.$article->featured_image);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $article->featured_image = $image_name;
         $staff->save();
         return redirect('/user');
     }
@@ -56,4 +68,10 @@ class ArticleController extends Controller
         $staff->deleteUser();
         return redirect('/user');
     }
+
+    public function cetak_pdf(){
+        $article = Article::all();
+        $pdf = PDF::loadview('articles_pdf',['article'=>$article]);
+        return $pdf->stream();
+      }
 }

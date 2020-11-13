@@ -23,7 +23,8 @@
 <div class="card">
 <div class="card-header">
 <h2> Add teacher </h2><br>
-<form action="/manage" method="post" enctype="multipart/form-data">
+<form action="/manage" method="post">
+<a href="/article/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
 
    @csrf
    
@@ -51,7 +52,7 @@
     <label for="image">Feature Image</label>
     <input type="file" class="form-control" required="required" name="image"></br>
     </div>
-    
+    <form action="/article/create" method="post" enctype="multipart/form-data">
     <button type="submit" name="add" class="btn btn-primary">Tambah Data</button>
 </form></div></div>
 </div>

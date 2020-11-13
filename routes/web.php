@@ -90,4 +90,7 @@ Route::get('/user/deleteUser/{id}', 'Article1Controller@deleteUser');
 Route::get('/user/editUser/{id}', 'Article1Controller@editUser');
 Route::post('/user/updateUser/{id}', 'Article1Controller@updateUser');
 
+//menjalankan cetak pdf
+Route::get('/article/cetak_pdf', 'ArticleController@cetak_pdf'); 
+
 

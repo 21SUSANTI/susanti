@@ -23,7 +23,7 @@
 <div class="card">
 <div class="card-header">
 <h2> Edit Data Guru </h2><br>
-<form action="/guru3/updateArticle/{{$staff->id}}" method="POST">
+<form action="/guru3/updateArticle/{{$staff->id}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$staff->id}}"><br>
                 <div class="form-group">
@@ -51,6 +51,12 @@
                 <input type="text" class="form-control"
                     required="required" name="Alamat" value="{{$staff->Alamat}}"><br>
                 </div>
+                <div class="form-group">
+                <label for="image">Feature Image</label>
+                <input type="file" class="form-control" required="required" name="image" value="{{$article->featured_image}}"></br>
+                <img width="150px" src="{{asset('storage/'.$article>featured_image)}}">
+                </div>
+                
                 <button type="submit" name="edit" class="btn btnprimary float-right">Ubah Data</button>
                 </form>
         </div>
