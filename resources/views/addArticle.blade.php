@@ -1,57 +1,31 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('layouts.parent')
+@section('title','add')
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+@section('content')
 
-    <title>Tambah Data</title>
-  </head>
-  <body>
-  <h1><font color="red" style="background-color:lightblue"><marquee>SELAMAT DATANG DI SDN 5 OLEAN</marquee></font color></h1><br>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-</nav>
-@section('container')
 <div class="col-lg-8">
-<br><br>
-<div class="card">
-<div class="card-header">
-<h2> Add teacher </h2><br>
-<form action="/manage" method="post" enctype="multipart/form-data">
-
-   @csrf
-   
-    <div class="form-group">
-        <label for="id">No</label>
-        <input type="text" class="form-control" required="required" name="no"></br>
-    </div>
-    <div class="form-group">
-        <label for="nip">NIP</label>
-        <input type="text" class="form-control" required="required" name="nip"></br>
-    </div>
-    <div   class="form-group">
-        <label for="nama">Nama Lengkap</label>
-        <input type="text" class="form-control" required="required" name="nama"></br>
-    </div>
-    <div class="form-group">
-        <label for="ttl">Tempat, Tanggal lahir</label>
-        <input type="text" class="form-control" required="required" name="ttl"></br>
-    </div>
-    <div class="form-group">
-        <label for="alamat">Alamat</label>
-        <input type="text" class="form-control" required="required" name="alamat"></br>
-    </div>
-    <div class="form-group">
-    <label for="image">Feature Image</label>
-    <input type="file" class="form-control" required="required" name="image"></br>
-    </div>
-    
-    <button type="submit" name="add" class="btn btn-primary">Tambah Data</button>
-</form></div></div>
+    <div class="card">
+        <div class="card-header text-center">
+            <h3>Daftar Artikel</h3>
+        </div>
+        </br>
+        </br>
+        <form action="/create" method="post">
+                @csrf
+                    <div class="form-group"><br><br>
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control"required="required" name="title" placeholder="Add Title Here"></br>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image Url</label>
+                        <input type="text" class="form-control"required="required" name="image" placeholder="Link Image Here"></br>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <input type="text" class="form-control"required="required" name="content" placeholder="Add Content Here"></br>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-center2" class="btn btn-primary btn-radiuszan"><i class="fa fa-plus-circle" aria-hidden="true" ></i>  Add Product</button><br><br>
+                </form>
 </div>
+</div>
+@endsection

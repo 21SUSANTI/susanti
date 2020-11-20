@@ -63,18 +63,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/ekstrakulikuler3', 'Ekstrakulikuler3Controller@ekstrakulikuler3');
 
 //Database Article/Read databse
-//Route::get('/manage', 'Article1Controller@guru3');
+Route::get('/manage', 'ArticleController@articles');
 
 //menambah data
-//Route::get('/manage/addArticle', 'Article1Controller@addArticle');
-//Route::post('/manage', 'Article1Controller@createArticle');
+Route::get('/manage/addArticle', 'ArticleController@addArticle');
+Route::post('/manage', 'ArticleController@createArticle');
 
 //menghapus data
-//Route::get('/manage/deleteArticle/{id}', 'Article1Controller@deleteArticle');
+Route::get('/manage/deleteArticle/{id}', 'ArticleController@deleteArticle');
 
 //mengedit data
-//Route::get('/manage/editArticle/{id}', 'Article1Controller@editArticle');
-//Route::post('/manage/updateArticle/{id}', 'Article1Controller@updateArticle');
+Route::get('/manage/editArticle/{id}', 'Article1Controller@editArticle');
+Route::post('/manage/updateArticle/{id}', 'Article1Controller@updateArticle');
 
 //Praktikum 6
 Route::get('/user', 'Article1Controller@user')->name('user');
@@ -92,5 +92,9 @@ Route::post('/user/updateUser/{id}', 'Article1Controller@updateUser');
 
 //menjalankan cetak pdf
 Route::get('/article/cetak_pdf', 'ArticleController@cetak_pdf'); 
+
+//API
+Route::get('/', 'NewsController@getData');
+Route::get('/search','TestController@searchData');
 
 

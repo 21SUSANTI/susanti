@@ -3,75 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class ArticleController extends Controller
 {
-    public function article($page){
-        return view('article', compact('page'));
+    public function index($id){
+        $article = Article::find($id);
+        return view('Article', ['id'=>$id])->with(compact('article'));
     }
-    public function construct() {
-        //$this->middleware('auth');
-        $this->middleware(function($request, $next){ 
-        if(Gate::allows('manage-articles')) return $next($request); 
-        abort(403, 'Anda tidak memiliki cukup hak akses');
-        });
-    }
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    public function addUser(){
-        return view('addUser');
-    }
-    
-    public function createUser(Request $request) {
-            if($request->file('image')){
-            $image_name = $request->file('image')->store('images','public');
-            }
-
-            Article::create([
-            $add->id= $request->no,
-            $add->nip=$request->nip,
-            $add->nama= $request->nama,
-            $add->ttl= $request->ttl,
-            $add->alamat=$request->alamat,
-            'featured_image' => $images_bunga,]);
-            return redirect('/manage');
-            } 
-
-    public function editUser($id){
-        $staff = Staff::find($id);
-        return view('editUser', ['staff'=>$staff]);
-    }
-
-    public function updateUser($id, Request $request){
-        $staff = Staff::find($id);
-        $staff->id=$request->id;
-        $staff->NIP=$request->NIP;
-        $staff->nama=$request->nama;
-        $staff->TTL=$request->TTL;
-        $staff->Alamat=$request->Alamat;
-        if($article->featured_image && file_exists(storage_path('app/public/' . $article->featured_image)))
-        {
-            \Storage::delete('public/'.$article->featured_image);
-        }
-        $image_name = $request->file('image')->store('images', 'public');
-        $article->featured_image = $image_name;
-        $staff->save();
-        return redirect('/user');
-    }
-
-    public function deleteUser ($id){
-        $staff = Staff::find($id);
-        $staff->deleteUser();
-        return redirect('/user');
-    }
-
-    public function cetak_pdf(){
+    public function manage(){
         $article = Article::all();
-        $pdf = PDF::loadview('articles_pdf',['article'=>$article]);
-        return $pdf->stream();
-      }
+        return view('Manage',['article' => $article]);
+    }
+    public function add(){
+        return view('addarticle');
+    }
+    public function create(Request $request){
+        Article::create([
+        'title' => $request->title,
+        'content' => $request->content,
+        'imageurl' => $request->image
+    ]);
+        return redirect('/manage');
+    }
+    public function edit($id){
+        $article = Article::find($id);
+        return view('editarticle',['article'=>$article]);
+    }
+    public function update($id, Request $request){
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->imageurl = $request->image;
+        $article->save();
+        return redirect('/manage');
+    }
+        public function delete($id){
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('/manage');
+    }
 }
