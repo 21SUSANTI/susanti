@@ -19,6 +19,7 @@
                     <a class="nav-link" href="/ekstrakulikuler3">EkstraKulikuler</a>
                     <a class="nav-link" href="/guru3">Guru</a>
                     <a class="nav-link" href="/Siswa3">Siswa</a>
+                    <a class="nav-link" href="/article">Article</a>
                 </div>
             </div>
         </div>

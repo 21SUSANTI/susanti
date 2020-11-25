@@ -3,47 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Article;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Gate;
-use PDF;
+
+//use Illuminate\Support\Facades\Cache;
+//use Illuminate\Support\Facades\Gate;
+//use PDF;
+
 
 class ArticleController extends Controller
 {
-    public function index($id){
-        $article = Article::find($id);
-        return view('Article', ['id'=>$id])->with(compact('article'));
+    public function article(){
+        $articles = article::all();
+        //$articles = DB:: all;
+        return view('article', ['article' => $articles]);
     }
-    public function manage(){
-        $article = Article::all();
-        return view('Manage',['article' => $article]);
-    }
+
     public function add(){
-        return view('addarticle');
+        return view('add');
     }
+
     public function create(Request $request){
-        Article::create([
-        'title' => $request->title,
-        'content' => $request->content,
-        'imageurl' => $request->image
-    ]);
-        return redirect('/manage');
+            $add= new article();
+            $add->id= $request->id;
+            $add->title=$request->title;
+            $add->content= $request->content;
+            $add->imageurl= $request->imageurl;
+            $add->save();
+        return redirect('/article');
     }
+
     public function edit($id){
-        $article = Article::find($id);
-        return view('editarticle',['article'=>$article]);
+        $article = article::find($id);
+        return view('edit', ['article'=>$article]);
     }
+
     public function update($id, Request $request){
-        $article = Article::find($id);
-        $article->title = $request->title;
-        $article->content = $request->content;
-        $article->imageurl = $request->image;
+        $article = article::find($id);
+        $article->id= $request->id;
+            $article->title=$request->title;
+            $article->content= $request->content;
+            $article->imageurl= $request->imageurl;
         $article->save();
-        return redirect('/manage');
+        return redirect('/article');
     }
-        public function delete($id){
-        $article = Article::find($id);
+
+    public function delete ($id){
+        $article = article::find($id);
         $article->delete();
-        return redirect('/manage');
+        return redirect('/article');
     }
 }
+    

@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'Home2Controller@index')->name('home');
 
-//Route::get('/article/{page}', 'ArticleController@article');
+Route::get('/article/{page}', 'ArticleController@article');
 
 //Route::get('/master', 'MasterController@master')->name('master');
 
@@ -32,9 +32,10 @@ Route::get('/home', 'Home2Controller@index')->name('home');
 //});
 //Route::get('/articles', 'Article1Controller@articles');
 
-Route::get('/', function () {
-    return view('home3');
-});
+//Route::get('/', function() {
+  //  return view('home3');
+//});
+
 Route::get('/','Home3Controller@home3');
 Route::get('/profil3', 'Profil3Controller@profil3');
 Route::get('/ekstrakulikuler3', 'Ekstrakulikuler3Controller@ekstrakulikuler3');
@@ -77,24 +78,46 @@ Route::get('/manage/editArticle/{id}', 'Article1Controller@editArticle');
 Route::post('/manage/updateArticle/{id}', 'Article1Controller@updateArticle');
 
 //Praktikum 6
-Route::get('/user', 'Article1Controller@user')->name('user');
+//Route::get('/user', 'Article1Controller@user')->name('user');
 
 //menambah data
-Route::get('/user/addUser', 'Article1Controller@addUser');
-Route::post('/user/createUser', 'Article1Controller@createUser');
+//Route::get('/user/addUser', 'Article1Controller@addUser');
+//Route::post('/user/createUser', 'Article1Controller@createUser');
 
 //menghapus data
-Route::get('/user/deleteUser/{id}', 'Article1Controller@deleteUser');
+//Route::get('/user/deleteUser/{id}', 'Article1Controller@deleteUser');
 
 //mengedit data
-Route::get('/user/editUser/{id}', 'Article1Controller@editUser');
-Route::post('/user/updateUser/{id}', 'Article1Controller@updateUser');
+//Route::get('/user/editUser/{id}', 'Article1Controller@editUser');
+//Route::post('/user/updateUser/{id}', 'Article1Controller@updateUser');
 
 //menjalankan cetak pdf
-Route::get('/article/cetak_pdf', 'ArticleController@cetak_pdf'); 
+//Route::get('/article/cetak_pdf', 'ArticleController@cetak_pdf'); 
 
 //API
-Route::get('/', 'NewsController@getData');
-Route::get('/search','TestController@searchData');
+//Route::get('/', 'NewsController@getData');
+//Route::get('/search','TestController@searchData');
+
+//coba article FIX
+//Route::get('/article', 'ArticleController@article');
+
+//menambah data
+//Route::get('/guru3/add', 'Guru3Controller@add');
+//Route::post('/guru3', 'Guru3Controller@create');
+
+//read database guru
+Route::get('/article', 'ArticleController@article');
+
+//menambah data
+Route::get('/article/add', 'ArticleController@add');
+Route::post('/article', 'ArticleController@create');
+
+//menghapus data
+Route::get('/Article/delete/{id}', 'ArticleController@delete');
+
+//mengedit data
+Route::get('/Article/editArticle/{id}', 'ArticleController@editArticle');
+Route::post('/Article/updateArticle/{id}', 'ArticleController@updateArticle');
+
 
 
