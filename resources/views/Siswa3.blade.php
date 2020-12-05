@@ -7,7 +7,7 @@
         <div class="row"> 
             <div class="col-10">
                 <h3 align="center">
-                <body style="background-color:bisque">
+                <body style="background-color:Thistle">
                     <font color="red" font-size=45px style="background-color:white">
                     DAFTAR NAMA SISWA BARU TAHUN AJARN 2020 SDN 5 OLEAN</font></h3>
                 <table class="table">

@@ -119,5 +119,12 @@ Route::get('/Article/delete/{id}', 'ArticleController@delete');
 Route::get('/Article/editArticle/{id}', 'ArticleController@editArticle');
 Route::post('/Article/updateArticle/{id}', 'ArticleController@updateArticle');
 
+//UPLOAD//
+Route::get('/uploadfile','uploadController@index');
+Route::post('/uploadfile','uploadController@insert');
+
+//DOWNLOAD PDF/
+Route::get('/laporan-pdf','pdfController@pdf');
+
 
 

@@ -7,7 +7,7 @@
         <div class="row"> 
             <div class="col-10">
                 <h3 align="center">
-                <body style="background-color:bisque">
+                <body style="background-color:tan">
                     <font color="red" font-size=45px style="background-color:white">
                     Halaman Article</font></h3>
                     <a href="/article/add" class="btn btn-primary my-3">Tambah Data</a>

@@ -20,7 +20,7 @@ class ArticleController extends Controller
     }
 
     public function add(){
-        return view('add');
+        return view('addArticle');
     }
 
     public function create(Request $request){

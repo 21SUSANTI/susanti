@@ -11,11 +11,18 @@
     <title>Home</title>
   </head>
   <body>
-  <h1><font color="red" style="background-color:lightblue"><marquee>SELAMAT DATANG DI SDN 5 OLEAN</marquee></font color></h1><br>
+  <table>
+        <tr>
+            <td><img src="{{ ('img//anaksd.jpg') }}"></td>
+            <td><img src="{{ ('img//anaksd.jpg') }}"></td>
+            <td><img src="{{ ('img//anaksd.jpg') }}"></td>
+        </tr>
+  </table>
+  <h1><font color="red"><marquee>SELAMAT DATANG DI SDN 5 OLEAN</marquee></font color></h1><br>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> </body>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-link active" href="/">Home</a>

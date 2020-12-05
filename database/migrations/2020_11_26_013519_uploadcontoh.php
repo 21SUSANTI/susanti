@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifTableUsers extends Migration
+class Uploadcontoh extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class ModifTableUsers extends Migration
      */
     public function up()
     {
-       // Schema::table('users',function (Blueprint $table){
-        //    $table->string("roles");
-        //});
+        //
+        Schema::create('upload', function (Blueprint $table) {
+            $table->bigIncrements('id_upload');
+            $table->string('nama');
+            $table->string('filename');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,8 +29,7 @@ class ModifTableUsers extends Migration
      */
     public function down()
     {
-       // Schema::table('users',function (Blueprint $table){
-         //   $table->dropColumn("roles");
-        //});
+        //
+        Schema::dropIfExists('upload');
     }
 }
